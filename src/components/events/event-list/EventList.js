@@ -4,7 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCalendarAlt,
   faMapMarkerAlt,
-  faUsers
+  faUsers,
+  faPencilAlt
 } from '@fortawesome/free-solid-svg-icons';
 
 function EventList() {
@@ -15,6 +16,11 @@ function EventList() {
           <Card.Text className='text-primary'>
             <FontAwesomeIcon icon={faCalendarAlt} />
             {' 2 Oktober 2019'}
+            <span>
+              <a href='#/'>
+                <FontAwesomeIcon className='float-right' icon={faPencilAlt} />
+              </a>
+            </span>
           </Card.Text>
           <Card.Title>Meeting CEO</Card.Title>
           <Card.Text className='text-primary'>
