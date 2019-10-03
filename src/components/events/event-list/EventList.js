@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
+(import {
   faCalendarAlt,
   faMapMarkerAlt,
   faUsers,
   faPencilAlt
-} from '@fortawesome/free-solid-svg-icons';
+} from '@fortawesome/free-solid-svg-icons';)
 
 function EventList() {
   return (

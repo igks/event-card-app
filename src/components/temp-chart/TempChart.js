@@ -3,27 +3,44 @@ import CanvasJSReact from '../../assets/canvasjs.react';
 // var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
+let temp = [];
+let timer;
+let xAxis = temp.length + 1;
+let yAxis = 15;
+
 class TempChart extends Component {
   constructor() {
     super();
-    this.generateDataPoints = this.generateDataPoints.bind(this);
+    this.updateTemp = this.updateTemp.bind(this);
   }
 
-  generateDataPoints(noOfDps) {
-    var xVal = 1,
-      yVal = 100;
-    var dps = [];
-    for (var i = 0; i < noOfDps; i++) {
-      yVal = yVal + Math.round(5 + Math.random() * (-5 - 5));
-      dps.push({ x: xVal, y: yVal });
-      xVal++;
+  componentDidMount() {
+    this.initialTemp();
+    timer = setInterval(this.updateTemp, 10000);
+  }
+  componentWillUnmount() {
+    clearInterval(timer);
+  }
+
+  updateTemp() {
+    yAxis = Math.floor(Math.random() * 25.5 + 20.1);
+    temp.push({ x: xAxis, y: yAxis });
+    xAxis++;
+    if (temp.length > 50) {
+      temp.shift();
     }
-    return dps;
+    this.chart.render();
+  }
+
+  initialTemp() {
+    for (let i = 0; i < 50; i++) {
+      this.updateTemp();
+    }
   }
 
   render() {
     const options = {
-      theme: 'light', // "light1", "dark1", "dark2"
+      theme: 'light1',
       animationEnabled: true,
       zoomEnabled: true,
       title: {
@@ -35,17 +52,14 @@ class TempChart extends Component {
       data: [
         {
           type: 'line',
-          dataPoints: this.generateDataPoints(500)
+          dataPoints: temp
         }
       ]
     };
 
     return (
       <div className='my-5'>
-        <CanvasJSChart
-          options={options}
-          /* onRef={ref => this.chart = ref} */
-        />
+        <CanvasJSChart options={options} onRef={ref => (this.chart = ref)} />
         {/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
       </div>
     );

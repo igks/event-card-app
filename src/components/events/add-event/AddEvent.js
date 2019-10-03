@@ -22,7 +22,7 @@ export default function AddEvent() {
                   name='title'
                   placeholder='Enter title'
                   required
-                  autocomplete='off'
+                  autoComplete='off'
                 />
               </Form.Group>
 
@@ -32,7 +32,7 @@ export default function AddEvent() {
                   name='location'
                   placeholder='Enter the location'
                   required
-                  autocomplete='off'
+                  autoComplete='off'
                 />
               </Form.Group>
 
@@ -50,7 +50,7 @@ export default function AddEvent() {
                   type='date'
                   name='date'
                   required
-                  autocomplete='off'
+                  autoComplete='off'
                 />
               </Form.Group>
 
@@ -61,7 +61,7 @@ export default function AddEvent() {
                   rows='4'
                   placeholder='Enter additional note'
                   required
-                  autocomplete='off'
+                  autoComplete='off'
                 />
               </Form.Group>
 
