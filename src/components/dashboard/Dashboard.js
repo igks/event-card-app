@@ -21,7 +21,7 @@ export default function Dashboard() {
             <AddEvent></AddEvent>
           </Col>
         </Row>
-        <TempChart></TempChart>
+        {/* <TempChart></TempChart> */}
       </Container>
     </Fragment>
   );

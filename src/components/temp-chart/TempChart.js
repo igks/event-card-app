@@ -6,7 +6,7 @@ var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 let temp = [];
 let timer;
 let xAxis = temp.length + 1;
-let yAxis = 15;
+let yAxis = 5;
 
 class TempChart extends Component {
   constructor() {
@@ -23,7 +23,7 @@ class TempChart extends Component {
   }
 
   updateTemp() {
-    yAxis = Math.floor(Math.random() * 25.5 + 20.1);
+    yAxis = Math.round((Math.random() * 25.5 + 20.1) * 100) / 100;
     temp.push({ x: xAxis, y: yAxis });
     xAxis++;
     if (temp.length > 50) {
@@ -44,7 +44,7 @@ class TempChart extends Component {
       animationEnabled: true,
       zoomEnabled: true,
       title: {
-        text: 'Real Time Temperature Monitoring'
+        text: 'Real Time Temperature Series'
       },
       axisY: {
         includeZero: false
@@ -52,7 +52,8 @@ class TempChart extends Component {
       data: [
         {
           type: 'line',
-          dataPoints: temp
+          dataPoints: temp,
+          lineColor: 'red'
         }
       ]
     };
