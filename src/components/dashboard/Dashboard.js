@@ -1,11 +1,15 @@
+// import dependencies
 import React, { Fragment } from 'react';
 import { Container, Navbar, Row, Col } from 'react-bootstrap';
+
+// import component
 import EventContainer from '../events/event-container/EventContainer';
 import AddEvent from '../events/add-event/AddEvent';
 import TempChart from '../temp-chart/TempChart';
 
 export default function Dashboard() {
   return (
+    // render the app
     <Fragment>
       <Container>
         <Navbar bg='primary' variant='dark'>
@@ -14,14 +18,14 @@ export default function Dashboard() {
           </Navbar.Brand>
         </Navbar>
         <Row>
-          <Col>
-            <EventContainer></EventContainer>
+          <Col md='6'>
+            <EventContainer />
           </Col>
-          <Col>
-            <AddEvent></AddEvent>
+          <Col md='6'>
+            <AddEvent />
           </Col>
         </Row>
-        {/* <TempChart></TempChart> */}
+        <TempChart />
       </Container>
     </Fragment>
   );
